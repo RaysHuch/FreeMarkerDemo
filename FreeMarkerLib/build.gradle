@@ -1,0 +1,11 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'org.freemarker:freemarker:2.3.23'
+    testImplementation 'junit:junit:4.12'
+
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
