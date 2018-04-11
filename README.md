@@ -1,0 +1,4 @@
+ Android实现Gradle插件
+--
+主要功能是实现一个android配置插件的功能，通过使用FreeMarker模板化的功能，通过build.gradle实现配置参数信息自动生成java文件。
+这里仅仅展示了插件与FreeMarker的基本功能，有兴趣的可以添加更实用的功能或更多配置信息。 
