@@ -10,6 +10,6 @@ public class GeneratorTest {
     public void generate() throws Exception {
         Generator daoGenerator = new Generator();
 
-        daoGenerator.generate(new File("checkTest"), "com.example.abc","myFile",11233,"man","Jeck");
+        daoGenerator.generate("checkTest", "com.example.abc","myFile",11233,"man","Jeck");
     }
 }

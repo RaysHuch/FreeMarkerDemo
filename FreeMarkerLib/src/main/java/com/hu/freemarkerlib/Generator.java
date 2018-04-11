@@ -28,6 +28,7 @@ public class Generator {
         try {
             config.getTemplate(template);
         } catch (TemplateNotFoundException e) {
+            System.out.println("出错");
             File dir = new File("src/main/resources/");
 
             if (dir.exists() && new File(dir, template).exists()) {
@@ -40,7 +41,7 @@ public class Generator {
         return config;
     }
 
-    public void generate(File outDirFile, String packageName,String clazzName,int id,String sex,String name) throws Exception {
+    public void generate(String outDirFileName, String packageName,String clazzName,int id,String sex,String name) throws Exception {
         // 创建数据模型
         Map<String, Object> root = new HashMap<>();
         TestBean testBean = new TestBean();
@@ -52,7 +53,7 @@ public class Generator {
         //这里的key的名称要与模板里的名称一致，否则无法进行映射
         root.put(BEAN_KEY, testBean);
 
-            File file = toJavaFilename(outDirFile, testBean.getPackageName(), testBean.getClazzName());
+            File file = toJavaFilename(new File(outDirFileName), testBean.getPackageName(), testBean.getClazzName());
             //noinspection ResultOfMethodCallIgnored
             file.getParentFile().mkdirs();
 
@@ -70,5 +71,12 @@ public class Generator {
         String packageSubPath = javaPackage.replace('.', '/');
         File packagePath = new File(outDirFile, packageSubPath);
         return new File(packagePath, javaClassName + ".java");
+    }
+
+    public static void main(String[] args) throws Exception {
+        Generator daoGenerator = new Generator();
+
+        daoGenerator.generate(args[0], args[1],args[2],Integer.parseInt(args[3]),args[4],args[5]);
+
     }
 }
