@@ -4,6 +4,8 @@
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
+/.idea/caches/
+/.idea/
 .DS_Store
 /build
 /captures
@@ -73,4 +75,4 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
-/.idea/caches/
+
